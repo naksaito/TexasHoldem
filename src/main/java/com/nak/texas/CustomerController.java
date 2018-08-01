@@ -12,7 +12,7 @@ public class CustomerController {
     @RequestMapping(method = RequestMethod.GET)
     public String test(Model model) {
         model.addAttribute("msg","サンプルメッセージ！");
-        return "test/test";
+        return "test/testA";
     }
 
 }
