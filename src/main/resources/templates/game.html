@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>スタート</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<!-- message.propertiesから取得 -->
+	<p th:text="#{content.startPageTitle}"></p>
+	<br>
+
+	<!-- value=/resultの@RequestMappingへ値を送信するフォーム -->
+	<!-- value=/gameの@RequestMappingからgameMasterアトリビュートを受け取る -->
+	<form class="form" th:action="@{/result}" th:object="${gameMaster}" method="POST">
+
+		<!-- テキストボックス。gameMasterアトリビュートの変数playerNumをバインド -->
+		<input type="number"  th:field="*{playerNum}" />人
+
+		<!-- バリデーションチェックによるエラー時のメッセージ -->
+		<!-- TODO message.propertiesから指定したエラーメッセージを出すつもりが、デフォルト(?)のものが表示。これから調査 -->
+		<span th:if="#{content.number}" th:errors="*{playerNum}"></span>
+		<br>
+
+		<!-- 送信ボタン。 -->
+		<button type="submit" id="submit"><span th:text="#{content.buttonSubmit}"></span></button>
+	</form>
+</body>
+</html>
