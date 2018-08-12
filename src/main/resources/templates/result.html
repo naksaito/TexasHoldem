@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>人数の表示</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<!-- message.propertiesから取得 -->
+	<p th:text="#{content.playerNumberMessage(${playerNum})}"></p>
+	<br>
+	<a th:href="@{'/game'}"><span th:text="#{content.back}"></span></a>
+</body>
+</html>
